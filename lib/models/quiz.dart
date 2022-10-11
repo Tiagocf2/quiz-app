@@ -6,7 +6,7 @@ import 'package:quiz_app/models/question.dart';
 
 class Quiz {
   List<Question>? questions;
-  int _length = 5;
+  int _length = 12;
   int current = 0;
   bool loading = true;
   bool finished = false;
