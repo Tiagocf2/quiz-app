@@ -49,8 +49,10 @@ class _QuizPageState extends State<QuizPage> {
   }
 
   handleFinish(int score) {
+    print(score / quiz.length);
     final finalScore =
-        (score / quiz.length * (1.5 + (timeout - time) / 1000)).round();
+        ((score / quiz.length) * 100 * (1 + ((timeout - time) / timeout) * 2.5))
+            .round();
     Navigator.pushReplacement(
         context,
         MaterialPageRoute(

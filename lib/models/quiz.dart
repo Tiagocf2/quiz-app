@@ -56,12 +56,16 @@ class Quiz {
 
   int finish() {
     finished = true;
-    int score = 0;
+    dynamic score = 0;
     for (Question q in questions!) {
-      if (q.valid) score++;
+      if (q.valid)
+        score++;
+      else
+        score -= 0.5;
     }
+    score = score.round();
     if (onFinish != null) {
-      onFinish!(score);
+      onFinish!(score as int);
     }
     return score;
   }
