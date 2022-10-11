@@ -49,8 +49,9 @@ class _QuizPageState extends State<QuizPage> {
   }
 
   handleFinish(int score) {
-    final finalScore = (score * (1 + (timeout - time) / 1000)).round();
-    Navigator.push(
+    final finalScore =
+        (score / quiz.length * (1.5 + (timeout - time) / 1000)).round();
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
             builder: (BuildContext context) => Result(score: finalScore)));
@@ -58,8 +59,8 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   void dispose() {
-    super.dispose();
     timer?.cancel();
+    super.dispose();
   }
 
   @override
